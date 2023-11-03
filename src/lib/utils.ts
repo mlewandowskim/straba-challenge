@@ -22,5 +22,5 @@ export function getPoints(activity: Activity) {
         "Ride": 2
     } as any
     const multiplier = multipliers[activity.type] ?? 0;
-    return Math.round(activity.distance.toNumber() * multiplier * 0.01);
+    return Math.round(activity.distance.toNumber() * multiplier * 0.001);
 }

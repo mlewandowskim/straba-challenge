@@ -16,7 +16,7 @@ export default function ({activity}: Props) {
             <CardContent>
                 <div className="text-2xl font-bold">+{getPoints(activity)}p</div>
                 <p className="text-xs text-muted-foreground">
-                    {(activity.distance.toNumber() / 100).toFixed(2)}km
+                    {(activity.distance.toNumber() / 1000).toFixed(2)}km
                 </p>
                 <p>
                     {activity.started_at.toLocaleDateString()} {activity.started_at.toLocaleTimeString()}

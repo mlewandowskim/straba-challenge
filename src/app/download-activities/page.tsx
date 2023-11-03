@@ -1,5 +1,6 @@
 import {PrismaClient} from "@prisma/client";
 import strava from "strava-v3";
+export const dynamic = 'force-dynamic'
 export default async function() {
     const prisma = new PrismaClient()
     const tokens = await prisma.stravaToken.findMany()

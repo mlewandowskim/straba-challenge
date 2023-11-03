@@ -1,11 +1,10 @@
 import strava from "strava-v3";
 import {PrismaClient} from "@prisma/client";
 
-type Props = {searchParams: { code: string}}
+type Props = { searchParams: { code: string } }
 export default async function StravaCallback({searchParams}: Props) {
     const prisma = new PrismaClient()
     const {code} = searchParams;
-    const authResponse = await strava.oauth.getToken(code)
     const {athlete} = authResponse
     const id = `${athlete.id}`
     await prisma.stravaToken.upsert({
@@ -30,4 +29,13 @@ export default async function StravaCallback({searchParams}: Props) {
     return (<div>
         Ok, got your data. Thanks {athlete.firstname}
     </div>)
+}
+
+async function getAuthResponse(code: string) {
+    try {
+        return await strava.oauth.getToken(code)
+    } catch (e) {
+        console.error(`Error getting token: ${JSON.stringify((e as any).request)}`)
+        throw e;
+    }
 }

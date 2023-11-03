@@ -3,6 +3,12 @@ import {PrismaClient} from "@prisma/client";
 
 type Props = { searchParams: { code: string } }
 export default async function StravaCallback({searchParams}: Props) {
+    strava.config({
+        redirect_uri: `https://straba-challenge.vercel.app/strava-callback`,
+        client_id: process.env.NEXT_SECRET_STRAVA_CLIENT_ID as string,
+        client_secret: process.env.NEXT_SECRET_STRAVA_CLIENT_SECRET as string,
+        access_token: ""
+    })
     const prisma = new PrismaClient()
     const {code} = searchParams;
     const authResponse = await getAuthResponse(code)

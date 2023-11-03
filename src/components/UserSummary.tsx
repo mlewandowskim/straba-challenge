@@ -23,11 +23,11 @@ export default async function ({token}: Props) {
 
     return (
         <div className="border-2 rounded-lg p-2">
-            <div className="flex justify-start items-center gap-3 mb-5">
+            <div className="flex justify-start items-center gap-1 md:gap-3 mb-5">
                 <Avatar>
                     <AvatarImage src={token.profile_medium} alt="Picture"/>
                 </Avatar>
-                <h2 className="text-3xl">{token.firstname} {token.lastname} ({total}p)</h2>
+                <h2 className="md:text-3xl text-l">{token.firstname} {token.lastname} ({total}p)</h2>
             </div>
             <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                 {activities.map(a => <Activity activity={a}/>)}

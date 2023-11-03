@@ -5,7 +5,7 @@ type Props = { searchParams: { code: string } }
 export default async function StravaCallback({searchParams}: Props) {
     const prisma = new PrismaClient()
     const {code} = searchParams;
-    const {athlete} = authResponse
+    const {athlete} = await getAuthResponse(code)
     const id = `${athlete.id}`
     await prisma.stravaToken.upsert({
         create: {

@@ -15,7 +15,7 @@ export default function () {
     return (
         <div>
             <Button>
-                <Link href={data.redirect} target="_blank">Authorize</Link>
+                <Link href={data.redirect} target="_blank">Authorize strava and get my data</Link>
             </Button>
         </div>
     );

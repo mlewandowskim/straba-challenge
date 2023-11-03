@@ -16,7 +16,7 @@ export default async function() {
                     strava_id: id,
                     name: a.name,
                     distance: a.distance,
-                    started_at: a.start_date_local,
+                    started_at: a.start_date,
                     strava_user_id: t.strava_user_id,
                     type: a.sport_type
                 },

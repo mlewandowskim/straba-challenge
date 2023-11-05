@@ -1,7 +1,7 @@
 import {PrismaClient} from "@prisma/client";
 import strava from "strava-v3";
 export const dynamic = 'force-dynamic'
-export const maxDuration = 60;
+export const maxDuration = 10;
 
 export default async function() {
     strava.config({

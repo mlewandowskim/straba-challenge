@@ -17,6 +17,9 @@ export default async function ({token}: Props) {
                 gte: '2023-11-01T00:00:00Z'
             },
         },
+        orderBy: {
+            started_at: "desc"
+        }
     })
 
     const total = activities.reduce((acc, a) => acc + getPoints(a), 0)

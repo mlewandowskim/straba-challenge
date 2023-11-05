@@ -9,7 +9,7 @@ type Props = {
 export default function ({activity}: Props) {
     return (
         <Link target="_blank" href={`https://www.strava.com/activities/${activity.strava_id}`}>
-            <Card>
+            <Card className="hover:bg-emerald-50 h-full">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                     <CardTitle className="text-sm font-medium">
                         {activity.name}
